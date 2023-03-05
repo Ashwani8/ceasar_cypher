@@ -27,14 +27,15 @@ math_operation = {
 }
 def calculator():
     """Perform basic math operation +, -, * and /"""
-    num1 = int(input("Enter first number?: "))
+    num1 = float(input("Enter first number?: "))
 
     for symbol in math_operation:
         print(symbol)
     should_contunue = True
     while should_contunue:
         operation_symbol = input("Pick an operation: ")
-        new_number = int(input("What's the next number?: "))
+        # what if they choose a different symbole?
+        new_number = float(input("What's the next number?: "))
         calculation_function = math_operation[operation_symbol]
         answer = calculation_function(num1, new_number) 
         print(f"{num1} {operation_symbol} {new_number} = {answer}")
