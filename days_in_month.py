@@ -1,6 +1,7 @@
 #This program checks if the given year is leap year or not
 # a leap year is divisible by 4, if divisible by 100 it must also be divisble by 400 otherise its not a leap year
 def is_leap(year):
+    """This function return True if the year is a leap year"""
     if year % 4 == 0 :
         if year % 100 == 0 :
             if year % 400 == 0 :
@@ -17,6 +18,7 @@ def is_leap(year):
         return False
 
 def days_in_month(year, month):
+    """ This function return days in a given month"""
     month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     if month > 12 or month < 1:
         return "invalid month"
