@@ -29,10 +29,21 @@ num1 = int(input("Enter first number?: "))
 
 for symbol in math_operation:
     print(symbol)
+should_contunue = True
+while should_contunue:
+    operation_symbol = input("Pick an operation: ")
+    new_number = int(input("What's the next number?: "))
+    calculation_function = math_operation[operation_symbol]
+    answer = calculation_function(num1, new_number) 
+    print(f"{num1} {operation_symbol} {new_number} = {answer}")
+    
+    user_decision = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to exit: ")
+    if user_decision == "y":
+        num1 = answer
+    elif user_decision == "n" :
+        should_contunue = False
+    else:
+        print("invalid choice")
+        num1 = answer
+        
 
-operation_symbol = input("Pick an operation from the line above: ")
-num2 = int(input("Enter second number?: "))
-calculation_function = math_operation[operation_symbol]
-# This concatnate simple text (add/subtract) with (n1,n2) in the line below
-answer = calculation_function(num1, num2) 
-print(f"{num1} {operation_symbol} {num2} = {answer}")
