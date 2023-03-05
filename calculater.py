@@ -25,25 +25,30 @@ math_operation = {
     "/" : divide,
 
 }
-num1 = int(input("Enter first number?: "))
+def calculator():
+    """Perform basic math operation +, -, * and /"""
+    num1 = int(input("Enter first number?: "))
 
-for symbol in math_operation:
-    print(symbol)
-should_contunue = True
-while should_contunue:
-    operation_symbol = input("Pick an operation: ")
-    new_number = int(input("What's the next number?: "))
-    calculation_function = math_operation[operation_symbol]
-    answer = calculation_function(num1, new_number) 
-    print(f"{num1} {operation_symbol} {new_number} = {answer}")
-    
-    user_decision = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to exit: ")
-    if user_decision == "y":
-        num1 = answer
-    elif user_decision == "n" :
-        should_contunue = False
-    else:
-        print("invalid choice")
-        num1 = answer
-        
+    for symbol in math_operation:
+        print(symbol)
+    should_contunue = True
+    while should_contunue:
+        operation_symbol = input("Pick an operation: ")
+        new_number = int(input("What's the next number?: "))
+        calculation_function = math_operation[operation_symbol]
+        answer = calculation_function(num1, new_number) 
+        print(f"{num1} {operation_symbol} {new_number} = {answer}")
 
+        user_decision = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to exit: ")
+        if user_decision == "y":
+            num1 = answer
+        elif user_decision == "n" :
+            should_contunue = False
+            # continue with calculating with new values
+            calculator() # recursive operation 
+        else:
+            print("invalid choice")
+            num1 = answer
+            
+
+calculator()
