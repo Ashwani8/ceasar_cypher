@@ -39,6 +39,7 @@ user_cards = []
 user_score = 0
 computer_cards = []
 computer_score = 0
+is_game_over = False
 def deal_card():
     """Returns a random cards form the deck card."""
     card= random.choice(cards)
@@ -67,7 +68,10 @@ def calculate_score(card_list):
 
 user_score = calculate_score(user_cards)
 computer_score = calculate_score(computer_cards)
-print(user_score)
+if user_score == 0 or computer_score == 0 or user_score > 21:
+    is_game_over = True
+print(f"{user_cards}, current score: {user_score}")
+print(f"Computer's first card: {computer_cards[0]}")
 #Hint 10: If the game has not ended, ask the user if they want to draw another card. If yes, then use the deal_card() function to add another card to the user_cards List. If no, then the game has ended.
 
 #Hint 11: The score will need to be rechecked with every new card drawn and the checks in Hint 9 need to be repeated until the game ends.
