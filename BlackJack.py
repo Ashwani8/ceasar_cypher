@@ -12,7 +12,7 @@
 ## The Jack/Queen/King all count as 10.
 ## The the Ace can count as 11 or 1.
 ## Use the following list as the deck of cards:
-## cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+##cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 ## The cards in the list have equal probability of being drawn.
 ## Cards are not removed from the deck as they are drawn.
 ## The computer is the dealer.
@@ -33,16 +33,30 @@
 
 #Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
 #11 is the Ace.
-#cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-
+import random
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+user_cards = []
+user_score = 0
+computer_cards = []
+computer_score = 0
+def deal_card():
+    """Returns a random cards form the deck card."""
+    card= random.choice(cards)
+    return card
 #Hint 5: Deal the user and computer 2 cards each using deal_card() and append().
-#user_cards = []
-#computer_cards = []
+for i in range(2): # we just need
+    user_cards.append(deal_card())
+    computer_cards.append(deal_card())
 
+print(user_cards)
 #Hint 6: Create a function called calculate_score() that takes a List of cards as input 
 #and returns the score. 
 #Look up the sum() function to help you do this.
-
+def calculate_score(card_list):
+    return sum(card_list)
+user_score = calculate_score(user_cards)
+computer_score = calculate_score(computer_cards)
+print(user_score)
 #Hint 7: Inside calculate_score() check for a blackjack (a hand with only 2 cards: ace + 10) and return 0 instead of the actual score. 0 will represent a blackjack in our game.
 
 #Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
