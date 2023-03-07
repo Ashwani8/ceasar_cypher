@@ -8,7 +8,7 @@ attempt_remained = 10
 level = input("I'm thinking of a number between 1 and 100. \n Choose a Difficulty level. Type 'easy' or 'hard': ")
 if level == 'hard':
     attempt_remained = 5
-random_number = random.randint(1,101)
+random_number = random.randint(1,100) # include both limits
 
 while attempt_remained > 0 and is_game_over ==False :
     
