@@ -25,9 +25,9 @@ MENU = {
 }
 
 resources = {
-    "water": 300,
-    "milk": 200,
-    "coffee": 100,
+    "water": 1000,
+    "milk": 400,
+    "coffee": 200,
 }
 def enough_resources(order_ingredients):
     """Return True/False, Check if we have enough ingredient to make a selected drink"""
@@ -57,6 +57,13 @@ def is_transition_successful(money_received, drink_cost):
     else:
         print("Sorry that's not enough money. Money refunded.")
         return False
+
+def make_coffee(drink_name, drink_ingredients):
+    """Deduct the required ingredient from the resources"""
+    for item in drink_ingredients:
+        # reduce the amount used in preparing drink from the resources
+        resources[item] -= drink_ingredients[item]
+    print(f"Here is your {drink_name} 😊")
 money = 0
 is_on = True
 while is_on:
@@ -74,5 +81,6 @@ while is_on:
             payment = process_coin()
             if is_transition_successful(payment,drink["cost"] ):
                 # deduct resources
-                print(f"{choice} will be ready")
-            # proceed! 
+                make_coffee(choice, drink['ingredients'])
+                
+           
